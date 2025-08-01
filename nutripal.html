@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriPal - Personalized Meal Plans for Your Health Goals</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #10B981, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+        #animated-hero-text::after {
+            content: '|';
+            font-weight: 200;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { color: transparent; }
+            50% { color: white; }
+        }
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 0 4rem; /* Space for arrows */
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 9999px;
+            width: 2.5rem;
+            height: 2.5rem;
+            z-index: 10;
+        }
+        .carousel-btn.prev { left: 0.5rem; }
+        .carousel-btn.next { right: 0.5rem; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- =========== Header & Navigation =========== -->
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-green-700">NutriPal</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#how-it-works" class="text-gray-600 hover:text-green-700 transition-colors">How It Works</a>
+                <a href="#features" class="text-gray-600 hover:text-green-700 transition-colors">Features</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-green-700 transition-colors">Testimonials</a>
+                <a href="#faq" class="text-gray-600 hover:text-green-700 transition-colors">FAQ</a>
+                <a href="#contact" class="text-gray-600 hover:text-green-700 transition-colors">Contact</a>
+            </div>
+            <button class="app-trigger hidden md:inline-block bg-green-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-green-700 transition-transform transform hover:scale-105 shadow-md">
+                Launch App
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- =========== Hero Section =========== -->
+        <section id="hero" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                    Achieve Your Health Goals,
+                    <br class="hidden md:block">
+                    <span class="gradient-text">One Meal at a Time.</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                    NutriPal offers personalized meal plans with delicious, easy-to-make options, designed specifically for your weight goals.
+                </p>
+                <button class="app-trigger mt-10 inline-block bg-green-600 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-green-700 transition-transform transform hover:scale-105 shadow-xl">
+                    Create Your Free Plan
+                </button>
+                <div class="mt-16">
+                    <div id="hero-image-container" class="relative mx-auto rounded-2xl shadow-2xl w-full max-w-3xl h-[350px] bg-cover bg-center flex items-center justify-center text-center p-4" 
+                         style="background-image:"\photo-1540189549336-e6e99c3679fe.jpg";">
+                        <div class="absolute inset-0 bg-black/40 rounded-2xl"></div>
+                        <h2 id="animated-hero-text" class="text-white text-3xl md:text-5xl font-bold z-10 min-h-[60px] md:min-h-[70px]"></h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other sections remain the same... -->
+        <section id="how-it-works" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Effortless Planning in 3 Simple Steps</h2>
+                <div class="mt-12 grid md:grid-cols-3 gap-10 md:gap-12">
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform animate-on-scroll">
+                        <div class="bg-green-100 text-green-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto text-3xl font-bold">1</div>
+                        <h3 class="mt-6 text-xl font-bold text-gray-900">Set Your Goal</h3>
+                        <p class="mt-2 text-gray-600">Tell us if you want to lose or gain weight. We'll tailor the plan just for you.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform animate-on-scroll" style="transition-delay: 150ms;">
+                        <div class="bg-green-100 text-green-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto text-3xl font-bold">2</div>
+                        <h3 class="mt-6 text-xl font-bold text-gray-900">Choose Your Meals</h3>
+                        <p class="mt-2 text-gray-600">Pick from delicious options for every meal, every day of the week.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform animate-on-scroll" style="transition-delay: 300ms;">
+                        <div class="bg-green-100 text-green-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto text-3xl font-bold">3</div>
+                        <h3 class="mt-6 text-xl font-bold text-gray-900">Follow & Succeed</h3>
+                        <p class="mt-2 text-gray-600">Get detailed nutritional info and follow your simple, effective plan to success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="features" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">Everything You Need for a Healthier You</h2>
+                <div class="mt-16 grid md:grid-cols-2 gap-12 items-center animate-on-scroll">
+                    <div class="text-center md:text-left">
+                        <span class="text-green-600 font-semibold">WEEKLY VARIETY</span>
+                        <h3 class="mt-2 text-3xl font-bold text-gray-900">Never Get Bored With Your Diet</h3>
+                        <p class="mt-4 text-gray-600">NutriPal provides a full 7-day rotating meal plan. New, exciting options every day keep your diet enjoyable and sustainable.</p>
+                    </div>
+                    <div>
+                        <img loading="lazy" src="https://wsrv.nl/?url=https://images.unsplash.com/photo-1512621776951-a57141f2eefd&w=600&h=400&fit=cover&q=80" alt="Meal Selection Interface" class="rounded-2xl shadow-xl mx-auto">
+                    </div>
+                </div>
+                <div class="mt-20 grid md:grid-cols-2 gap-12 items-center animate-on-scroll">
+                    <div class="md:order-2 text-center md:text-left">
+                        <span class="text-green-600 font-semibold">DETAILED INSIGHTS</span>
+                        <h3 class="mt-2 text-3xl font-bold text-gray-900">Make Informed Decisions</h3>
+                        <p class="mt-4 text-gray-600">Every meal comes with a complete breakdown of its calories, protein, benefits, and potential disadvantages so you know exactly what you're eating.</p>
+                    </div>
+                    <div class="md:order-1">
+                        <img loading="lazy" src="https://wsrv.nl/?url=https://images.unsplash.com/photo-1498837167922-ddd27525d352&w=600&h=400&fit=cover&q=80" alt="Nutritional Details Card" class="rounded-2xl shadow-xl mx-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">Loved by Users Like You</h2>
+                <div class="mt-12 grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg animate-on-scroll">
+                        <div class="flex items-center"><img loading="lazy" src="https://wsrv.nl/?url=https://i.pravatar.cc/100?u=a&w=50&h=50&fit=cover&q=80" alt="User Avatar" class="w-12 h-12 rounded-full"><div class="ml-4"><p class="font-bold text-gray-900">Anjali R.</p><p class="text-sm text-gray-500">Visakhapatnam</p></div></div>
+                        <p class="mt-4 text-gray-600 italic">"The 7-day plan is a game-changer! I lost 6kgs and never got bored. Highly recommended for anyone in India."</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg animate-on-scroll" style="transition-delay: 150ms;">
+                        <div class="flex items-center"><img loading="lazy" src="https://wsrv.nl/?url=https://i.pravatar.cc/100?u=b&w=50&h=50&fit=cover&q=80" alt="User Avatar" class="w-12 h-12 rounded-full"><div class="ml-4"><p class="font-bold text-gray-900">Vikram K.</p><p class="text-sm text-gray-500">Hyderabad</p></div></div>
+                        <p class="mt-4 text-gray-600 italic">"As a college student, this was a lifesaver. Simple, effective, and the variety kept me on track. The best part? It's free."</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg animate-on-scroll" style="transition-delay: 300ms;">
+                        <div class="flex items-center"><img loading="lazy" src="https://wsrv.nl/?url=https://i.pravatar.cc/100?u=c&w=50&h=50&fit=cover&q=80" alt="User Avatar" class="w-12 h-12 rounded-full"><div class="ml-4"><p class="font-bold text-gray-900">Priya S.</p><p class="text-sm text-gray-500">Bengaluru</p></div></div>
+                        <p class="mt-4 text-gray-600 italic">"Finally, a nutrition app that understands Indian food and the need for variety! I'm gaining weight healthily and enjoying every meal."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-20">
+            <div class="container mx-auto px-6 max-w-4xl" x-data="{ open: null }">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">Frequently Asked Questions</h2>
+                <div class="mt-12 space-y-4">
+                    <div class="bg-white p-6 rounded-lg shadow-md"><button @click="open = (open === 1 ? null : 1)" class="w-full flex justify-between items-center text-left text-lg font-semibold text-gray-800">Is NutriPal really free?<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform" :class="{'rotate-180': open === 1}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button><div x-show="open === 1" x-collapse class="mt-4 text-gray-600">Yes! NutriPal is a community project and is completely free to use. Our goal is to make healthy living accessible to everyone.</div></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md"><button @click="open = (open === 2 ? null : 2)" class="w-full flex justify-between items-center text-left text-lg font-semibold text-gray-800">How much variety is in the meal plan?<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform" :class="{'rotate-180': open === 2}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button><div x-show="open === 2" x-collapse class="mt-4 text-gray-600">We provide a full 7-day rotating plan with different meal options every day to ensure you get a wide range of nutrients and never get bored with your diet.</div></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md"><button @click="open = (open === 4 ? null : 4)" class="w-full flex justify-between items-center text-left text-lg font-semibold text-gray-800">Can I use this with a medical condition?<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform" :class="{'rotate-180': open === 4}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button><div x-show="open === 4" x-collapse class="mt-4 text-gray-600">NutriPal provides general nutritional guidance and is not a substitute for professional medical advice. If you have a condition like diabetes or high blood pressure, please consult with your doctor before making dietary changes.</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Get in Touch</h2>
+                     <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Have questions or feedback? We'd love to hear from you!</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div class="animate-on-scroll">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Contact Information</h3>
+                        <p class="text-gray-600 mb-6">As a community project, your feedback is vital for our growth. Please don't hesitate to reach out.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg><span class="ml-3 text-gray-700">feedback@nutripal.org</span></div>
+                            <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg><span class="ml-3 text-gray-700">Visakhapatnam, Andhra Pradesh</span></div>
+                        </div>
+                    </div>
+                    <form action="#" method="POST" class="space-y-6 bg-gray-50 p-8 rounded-2xl shadow-lg animate-on-scroll" style="transition-delay: 150ms;">
+                        <div><label for="name" class="block text-sm font-medium text-gray-700">Full Name</label><input type="text" name="name" id="name" required class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"></div>
+                        <div><label for="email" class="block text-sm font-medium text-gray-700">Email Address</label><input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"></div>
+                        <div><label for="subject" class="block text-sm font-medium text-gray-700">Subject</label><input type="text" name="subject" id="subject" required class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"></div>
+                        <div><label for="description" class="block text-sm font-medium text-gray-700">Description</label><textarea name="description" id="description" rows="4" required class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"></textarea></div>
+                        <div><button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 font-semibold">Send Message</button></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-green-700 text-white">
+            <div class="container mx-auto px-6 py-20 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold">Ready to Start Your Transformation?</h2>
+                <p class="mt-4 max-w-2xl mx-auto">Join thousands of others who are taking control of their health with NutriPal.</p>
+                <button class="app-trigger mt-8 inline-block bg-white text-green-700 font-bold text-lg px-8 py-4 rounded-xl hover:bg-gray-100 transition-transform transform hover:scale-105 shadow-xl">
+                    Get Started - It's Free!
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p class="text-xl font-bold text-white">NutriPal</p>
+            <div class="mt-4 space-x-6">
+                <a href="#" class="hover:text-white">About Us</a>
+                <a href="#contact" class="hover:text-white">Contact</a>
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+            </div>
+            <p class="mt-6 text-gray-400">&copy; 2025 NutriPal. A Community Project Designed in Visakhapatnam.</p>
+        </div>
+    </footer>
+
+    <!-- =========== Application Modal =========== -->
+    <div id="app-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 transition-opacity duration-300">
+        <div id="app-modal-content" class="bg-gray-50 rounded-2xl shadow-2xl w-full max-w-7xl h-full max-h-[95vh] transform scale-95 transition-transform duration-300 overflow-hidden flex flex-col">
+            <div class="flex justify-between items-center p-4 border-b border-gray-200 flex-shrink-0">
+                <h2 class="text-xl font-bold text-green-700">NutriPal Plan Creator</h2>
+                <button id="close-modal-btn" class="text-gray-500 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
+            </div>
+            
+            <div id="modal-body" class="p-4 md:p-8 overflow-y-auto flex-grow">
+                <div id="goal-screen" class="text-center">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What is Your Primary Goal?</h1>
+                    <p class="text-gray-600 mb-10">This will help us personalize your 7-day meal plan.</p>
+                    <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                        <div class="goal-card border-4 border-transparent hover:border-green-500 bg-white p-8 rounded-2xl cursor-pointer transition-all duration-300 transform hover:-translate-y-2" data-goal="loss">
+                            <img loading="lazy" src="https://wsrv.nl/?url=https://images.unsplash.com/photo-1543353071-873f17a7a088&w=150&h=150&fit=cover&q=80" alt="Weight Loss" class="mx-auto h-24 w-24 rounded-full object-cover mb-4">
+                            <h2 class="text-2xl font-bold text-gray-800">Weight Loss</h2>
+                            <p class="text-gray-500 mt-1">Create a calorie deficit with healthy, filling meals.</p>
+                        </div>
+                        <div class="goal-card border-4 border-transparent hover:border-green-500 bg-white p-8 rounded-2xl cursor-pointer transition-all duration-300 transform hover:-translate-y-2" data-goal="gain">
+                            <img loading="lazy" src="https://wsrv.nl/?url=https://images.unsplash.com/photo-1598214886806-c87b84b7078b&w=150&h=150&fit=cover&q=80" alt="Weight Gain" class="mx-auto h-24 w-24 rounded-full object-cover mb-4">
+                            <h2 class="text-2xl font-bold text-gray-800">Weight Gain</h2>
+                            <p class="text-gray-500 mt-1">Build mass with nutrient-dense, high-protein options.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="plan-screen" class="hidden">
+                    <div class="text-center mb-8">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-2">Your 7-Day Meal Plan</h1>
+                        <p class="text-gray-600 text-lg">Select a day to see your curated meals.</p>
+                    </div>
+                    <div id="day-selector" class="flex justify-center flex-wrap gap-2 mb-8"></div>
+                    <div id="meal-plan-container" class="space-y-12"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+    function setupNutriPal() {
+        const mealData = {
+            loss: {
+                day1: {
+                    breakfast: [{ id: 1, name: 'Oatmeal & Berries', calories: 300, protein: 10, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1585238342024-78d387f4a707&w=200&h=200&fit=cover&q=80', advantages: ['High in fiber', 'Slow-release energy'], disadvantages: ['Can be bland without toppings'] }],
+                    lunch: [{ id: 6, name: 'Grilled Chicken Salad', calories: 400, protein: 35, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1550304943-4f24f54ddde9&w=200&h=200&fit=cover&q=80', advantages: ['High protein, low carb', 'Rich in nutrients'], disadvantages: ['Dressing can add hidden calories'] }],
+                    dinner: [{ id: 11, name: 'Lentil Soup', calories: 200, protein: 5, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1532635224-cf024e669559&w=200&h=200&fit=cover&q=80', advantages: ['Hydrating and low calorie', 'Packed with vitamins'], disadvantages: ['May not be very filling'] }],
+                    snacks: [{ id: 16, name: 'Crisp Apple', calories: 95, protein: 1, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1560806887-1e4cd0b69665&w=200&h=200&fit=cover&q=80', advantages: ['Rich in fiber and vitamins', 'Hydrating'], disadvantages: ['High in natural sugars'] }]
+                },
+                day2: {
+                    breakfast: [{ id: 2, name: 'Masala Poha', calories: 250, protein: 5, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1668665632136-78d4a572a99c&w=200&h=200&fit=cover&q=80', advantages: ['Light on stomach', 'Good source of carbs'], disadvantages: ['Low in protein'] }],
+                    lunch: [{ id: 7, name: 'Dal & Brown Rice', calories: 350, protein: 15, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1609451049993-8324a933257c&w=200&h=200&fit=cover&q=80', advantages: ['Complete protein source', 'High in fiber'], disadvantages: ['Can be carb-heavy'] }],
+                    dinner: [{ id: 12, name: 'Grilled Chicken Breast', calories: 350, protein: 40, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1598515214211-89d3c7373058&w=200&h=200&fit=cover&q=80', advantages: ['Lean protein source', 'Builds muscle'], disadvantages: ['Can be dry if overcooked'] }],
+                    snacks: [{ id: 17, name: 'Handful of Almonds', calories: 160, protein: 6, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1600688640154-9619e0024a23&w=200&h=200&fit=cover&q=80', advantages: ['Healthy fats and protein', 'Keeps you full'], disadvantages: ['High in calories if overeaten'] }]
+                },
+                day3: { breakfast: [{ id: 3, name: 'Veggie Omelette', calories: 280, protein: 20, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1525351484163-7529414344d8&w=200&h=200&fit=cover&q=80', advantages: ['Excellent protein source', 'Keeps you full'], disadvantages: ['High in cholesterol'] }], lunch: [{ id: 8, name: 'Paneer Tikka Skewers', calories: 380, protein: 25, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1567188040759-fb8a873dc6d8&w=200&h=200&fit=cover&q=80', advantages: ['Great for vegetarians', 'Rich in calcium'], disadvantages: ['Can be high in fat'] }], dinner: [{ id: 13, name: 'Tofu Stir-fry', calories: 300, protein: 20, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1604329263228-a54a015897b6&w=200&h=200&fit=cover&q=80', advantages: ['Plant-based protein', 'Versatile'], disadvantages: ['Texture isn\'t for everyone'] }], snacks: [{ id: 18, name: 'Greek Yogurt', calories: 100, protein: 17, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1562119422-a72f09449363&w=200&h=200&fit=cover&q=80', advantages: ['Excellent source of protein', 'Probiotics for gut health'], disadvantages: ['Can be sour for some palates'] }] },
+                day4: { breakfast: [{ id: 4, name: 'Sprouts Salad', calories: 200, protein: 15, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1505253716362-afb74bf60d44&w=200&h=200&fit=cover&q=80', advantages: ['Rich in vitamins', 'Low calorie'], disadvantages: ['Can cause bloating for some'] }], lunch: [{ id: 9, name: 'Spicy Fish Curry', calories: 420, protein: 30, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1626502129343-a7c8a75a542a&w=200&h=200&fit=cover&q=80', advantages: ['Omega-3 fatty acids', 'Excellent protein'], disadvantages: ['Gravy can be oily'] }], dinner: [{ id: 14, name: 'Roti & Mix Veg Sabzi', calories: 320, protein: 10, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1631292784066-8ce319a5e275&w=200&h=200&fit=cover&q=80', advantages: ['Balanced meal', 'Comfort food'], disadvantages: ['Can be high in carbs'] }], snacks: [{ id: 16, name: 'Crisp Apple', calories: 95, protein: 1, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1560806887-1e4cd0b69665&w=200&h=200&fit=cover&q=80', advantages: ['Rich in fiber and vitamins', 'Hydrating'], disadvantages: ['High in natural sugars'] }] },
+                day5: { breakfast: [{ id: 5, name: 'Idli Sambar', calories: 220, protein: 8, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1668665632296-382e2d53c516&w=200&h=200&fit=cover&q=80', advantages: ['Fermented food, good for gut', 'Easy to digest'], disadvantages: ['Sambar can be high in sodium'] }], lunch: [{ id: 10, name: 'Quinoa Veggie Bowl', calories: 320, protein: 12, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1512058564366-185109023977&w=200&h=200&fit=cover&q=80', advantages: ['Gluten-free', 'Complete protein'], disadvantages: ['Can have a bitter taste if not rinsed'] }], dinner: [{ id: 15, name: 'Mushroom Risotto', calories: 380, protein: 12, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1595908129393-18e12d385994&w=200&h=200&fit=cover&q=80', advantages: ['Creamy and satisfying', 'Good source of B vitamins'], disadvantages: ['High in carbs and fat'] }], snacks: [{ id: 17, name: 'Handful of Almonds', calories: 160, protein: 6, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1600688640154-9619e0024a23&w=200&h=200&fit=cover&q=80', advantages: ['Healthy fats and protein', 'Keeps you full'], disadvantages: ['High in calories if overeaten'] }] },
+            },
+            gain: { 
+                day1: { breakfast: [{ id: 101, name: 'Peanut Butter Toast', calories: 450, protein: 20, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1565299499882-4831a31e28f9&w=200&h=200&fit=cover&q=80', advantages: ['High calorie and protein', 'Healthy fats'], disadvantages: ['High in fat'] }], lunch: [{ id: 104, name: 'Rajma Chawal', calories: 500, protein: 20, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1599569956487-7c795d9834f5&w=200&h=200&fit=cover&q=80', advantages: ['Excellent carb and protein combo', 'Very filling'], disadvantages: ['Can cause bloating'] }], dinner: [{ id: 106, name: 'Mutton Curry', calories: 600, protein: 40, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1554480623-a17235123a92&w=200&h=200&fit=cover&q=80', advantages: ['Very high in protein and calories', 'Rich in iron'], disadvantages: ['High in saturated fat'] }], snacks: [{ id: 107, name: 'Full-Fat Yogurt', calories: 150, protein: 10, image: 'https://wsrv.nl/?url=https://images.unsplash.com/photo-1559598467-f8b76c8155d0&w=200&h=200&fit=cover&q=80', advantages: ['Healthy fats and protein', 'Good for gut health'], disadvantages: ['High in fat'] }] },
+            }
+        };
+        
+        mealData.loss.day6 = { ...mealData.loss.day1 };
+        mealData.loss.day7 = { ...mealData.loss.day2 };
+        mealData.gain.day2 = { ...mealData.gain.day1 };
+        mealData.gain.day3 = { ...mealData.gain.day1 };
+        mealData.gain.day4 = { ...mealData.gain.day1 };
+        mealData.gain.day5 = { ...mealData.gain.day1 };
+        mealData.gain.day6 = { ...mealData.gain.day1 };
+        mealData.gain.day7 = { ...mealData.gain.day1 };
+
+        const appModal = document.getElementById('app-modal'), appModalContent = document.getElementById('app-modal-content'), modalBody = document.getElementById('modal-body'), closeModalBtn = document.getElementById('close-modal-btn'), appTriggers = document.querySelectorAll('.app-trigger'), goalScreen = document.getElementById('goal-screen'), planScreen = document.getElementById('plan-screen'), goalCards = document.querySelectorAll('.goal-card'), mealPlanContainer = document.getElementById('meal-plan-container'), daySelectorContainer = document.getElementById('day-selector');
+        let currentGoal = 'loss', currentDay = 'day1';
+        function openModal() { appModal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; setTimeout(() => { appModal.classList.remove('opacity-0'); appModalContent.classList.remove('scale-95'); }, 10); }
+        function closeModal() { appModalContent.classList.add('scale-95'); appModal.classList.add('opacity-0'); document.body.style.overflow = ''; setTimeout(() => { appModal.classList.add('hidden'); planScreen.classList.add('hidden'); goalScreen.classList.remove('hidden'); }, 300); }
+        function generateDaySelector() { daySelectorContainer.innerHTML = ''; for (let i = 1; i <= 7; i++) { const day = `day${i}`, button = document.createElement('button'); button.textContent = `Day ${i}`; button.dataset.day = day; button.className = `day-btn px-4 py-2 rounded-lg font-semibold transition-colors ${day === currentDay ? 'bg-green-600 text-white' : 'bg-white text-gray-700 hover:bg-green-100'}`; button.addEventListener('click', () => { currentDay = day; document.querySelectorAll('.day-btn').forEach(btn => btn.classList.remove('bg-green-600', 'text-white')); button.classList.add('bg-green-600', 'text-white'); generateMealPlanUI(currentGoal, currentDay); }); daySelectorContainer.appendChild(button); } }
+        function generateMealPlanUI(goal, day) { const plan = mealData[goal][day]; mealPlanContainer.innerHTML = ''; Object.keys(plan).forEach((mealType) => { const meals = plan[mealType], mealTypeTitle = mealType.charAt(0).toUpperCase() + mealType.slice(1), section = document.createElement('div'); section.className = 'meal-section bg-white p-6 rounded-2xl shadow-lg'; let carouselHTML = `<h2 class="text-2xl font-bold text-gray-800 mb-4">${mealTypeTitle}</h2><div class="carousel-container overflow-hidden"><div class="carousel-track">`; meals.forEach(meal => { carouselHTML += `<div class="carousel-item text-center"><img loading="lazy" src="${meal.image}" alt="${meal.name}" class="w-48 h-48 mx-auto rounded-full object-cover border-4 border-gray-200 cursor-pointer meal-image" data-meal-id="${meal.id}" data-meal-type="${mealType}"><p class="mt-2 text-lg font-bold text-gray-800">${meal.name}</p><p class="text-sm text-gray-500">🔥 ${meal.calories} kcal | 💪 ${meal.protein}g Protein</p></div>`; }); carouselHTML += `</div>`; if (meals.length > 1) { carouselHTML += `<button class="carousel-btn prev shadow-md"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button><button class="carousel-btn next shadow-md"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>`; } carouselHTML += `</div>`; section.innerHTML = carouselHTML + `<div id="${mealType}-details" class="details-card bg-gray-100 rounded-xl p-6 mt-6 transition-all duration-300 min-h-[150px] flex items-center justify-center"><p class="text-gray-500">Click a meal image to see details.</p></div>`; mealPlanContainer.appendChild(section); }); setupCarousels(); addMealImageListeners(goal, day); }
+        function setupCarousels() { document.querySelectorAll('.carousel-container').forEach(container => { const track = container.querySelector('.carousel-track'), items = track.querySelectorAll('.carousel-item'), nextBtn = container.querySelector('.next'), prevBtn = container.querySelector('.prev'); let index = 0; function updateCarousel() { track.style.transform = `translateX(-${index * 100}%)`; } if(nextBtn) { nextBtn.addEventListener('click', () => { index = (index + 1) % items.length; updateCarousel(); }); } if(prevBtn) { prevBtn.addEventListener('click', () => { index = (index - 1 + items.length) % items.length; updateCarousel(); }); } }); }
+        function addMealImageListeners(goal, day) { document.querySelectorAll('.meal-image').forEach(img => { img.addEventListener('click', () => { const mealId = parseInt(img.dataset.mealId), mealType = img.dataset.mealType, meal = mealData[goal][day][mealType].find(m => m.id === mealId), detailsCard = document.getElementById(`${mealType}-details`); document.querySelectorAll(`[data-meal-type="${mealType}"] .meal-image`).forEach(i => i.classList.remove('border-green-500')); img.classList.add('border-green-500'); let goalDetails = goal === 'loss' ? '<p class="text-sm text-blue-600">✅ Good for Weight Loss</p>' : '<p class="text-sm text-purple-600">✅ Good for Weight Gain</p>'; detailsCard.innerHTML = `<div class="text-left"><h3 class="text-2xl font-bold text-gray-900 mb-2">${meal.name}</h3><div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm mb-4"><span class="font-semibold">🔥 ${meal.calories} kcal</span><span class="font-semibold">💪 ${meal.protein}g Protein</span>${goalDetails}</div><div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm"><div><h4 class="font-bold text-green-600 mb-1">Advantages</h4><ul class="list-disc list-inside text-gray-600 space-y-1">${meal.advantages.map(adv => `<li>${adv}</li>`).join('')}</ul></div><div><h4 class="font-bold text-red-500 mb-1">Disadvantages</h4><ul class="list-disc list-inside text-gray-600 space-y-1">${meal.disadvantages.map(dis => `<li>${dis}</li>`).join('')}</ul></div></div></div>`; }); }); }
+        appTriggers.forEach(btn => btn.addEventListener('click', openModal)); closeModalBtn.addEventListener('click', closeModal); appModal.addEventListener('click', (e) => { if (e.target === appModal) closeModal(); }); goalCards.forEach(card => { card.addEventListener('click', () => { currentGoal = card.dataset.goal; currentDay = 'day1'; generateDaySelector(); generateMealPlanUI(currentGoal, currentDay); goalScreen.classList.add('hidden'); planScreen.classList.remove('hidden'); }); });
+        const animatedElements = document.querySelectorAll('.animate-on-scroll'); if (animatedElements.length) { const pageObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } else { entry.target.classList.remove('is-visible'); } }); }, { threshold: 0.1 }); animatedElements.forEach(element => { pageObserver.observe(element); }); }
+        const animatedHeroText = document.getElementById('animated-hero-text'); if (animatedHeroText) { const texts = ["Welcome to NutriPal", "Your Personal Diet"]; let textIndex = 0, charIndex = 0, isDeleting = false; function typeAnimation() { const currentText = texts[textIndex]; let speed = 150; if (isDeleting) { speed = 75; charIndex--; } else { charIndex++; } animatedHeroText.textContent = currentText.substring(0, charIndex); if (!isDeleting && charIndex === currentText.length) { speed = 2000; isDeleting = true; } else if (isDeleting && charIndex === 0) { isDeleting = false; textIndex = (textIndex + 1) % texts.length; speed = 500; } setTimeout(typeAnimation, speed); } setTimeout(typeAnimation, 1000); }
+    }
+    document.addEventListener('DOMContentLoaded', setupNutriPal);
+    </script>
+</body>
+</html>
